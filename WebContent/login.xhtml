@@ -7,23 +7,28 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <title>login</title>
+	<h:outputStylesheet name="style.css" />
+	<title>login</title>
 </h:head>
 <h:body>
-    <h:form>
-        <h3>JSF Login Logout</h3>
-        <h:outputText value="Username" />
-        <p:inputText id="username" value="#{login.user}"></p:inputText>
-        <h:message for="username"></h:message>
-        <br /><br />
-         
-        <h:outputText value="Password" />
-        <h:inputSecret id="password" value="#{login.pwd}"></h:inputSecret>
-        <h:message for="password"></h:message>
-        <br /><br />
-         
-        <h:commandButton action="#{login.validateUsernamePassword}"
-            value="Login"></h:commandButton>
-    </h:form>
+	<div class="form_login">
+		<h:form>
+			<h3>JSF Login Logout</h3>
+			<h:outputText value="Username " />
+			<p:inputText id="username" value="#{login.user}"></p:inputText>
+			<h:message for="username"></h:message>
+			<br />
+			<br />
+
+			<h:outputText value="Password " />
+			<p:password id="password" value="#{login.pwd}"></p:password>
+			<h:message for="password"></h:message>
+			<br />
+			<br />
+
+			<p:commandButton action="#{login.validateUsernamePassword}"
+				value="Login"></p:commandButton>
+		</h:form>
+	</div>
 </h:body>
 </html>
