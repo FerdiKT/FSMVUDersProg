@@ -8,7 +8,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
  
-@ManagedBean(name="login")
+@ManagedBean
 @SessionScoped
 public class Login implements Serializable {
  
@@ -55,7 +55,7 @@ public class Login implements Serializable {
                     new FacesMessage(FacesMessage.SEVERITY_WARN,
                             "Incorrect Username and Passowrd",
                             "Please enter correct username and Password"));
-            return "admin";
+            return "login";
         }
     }
  
