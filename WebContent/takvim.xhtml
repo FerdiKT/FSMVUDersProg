@@ -4,9 +4,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
+	<ui:include src="header.xhtml"></ui:include>
 	<title>First JSF Example</title>
 </h:head>
 <h:body>
@@ -16,7 +18,8 @@
 		<h:panelGrid columnClasses="value">
 			<h3 style="margin-top: 0">Editable Schedule</h3>
 			<p:schedule id="schedule" value="#{scheduleView.eventModel}"
-				widgetVar="myschedule" timeZone="GMT+2" locale="tr" view="agendaWeek" firstHour="9">
+				widgetVar="myschedule" timeZone="GMT+2" locale="tr"
+				view="agendaWeek" firstHour="9" slotMinutes="10">
 
 				<p:ajax event="dateSelect" listener="#{scheduleView.onDateSelect}"
 					update="eventDetails" oncomplete="PF('eventDialog').show();" />
@@ -38,20 +41,26 @@
 					required="true" />
 
 				<h:outputLabel for="from" value="From:" />
-				<p:inputMask id="from" value="#{scheduleView.event.startDate}"
-					mask="99/99/9999">
-					<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT+2" />
-				</p:inputMask>
+				<p:calendar id="from" showOn="button"
+					value="#{scheduleView.event.startDate}" />
 
 				<h:outputLabel for="to" value="To:" />
-				<p:inputMask id="to" value="#{scheduleView.event.endDate}"
-					mask="99/99/9999">
-					<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT+2" />
-				</p:inputMask>
+				<p:calendar id="to" showOn="button"
+					value="#{scheduleView.event.endDate}" />
 
-				<h:outputLabel for="allDay" value="All Day:" />
-				<h:selectBooleanCheckbox id="allDay"
-					value="#{scheduleView.event.allDay}" />
+				<h:outputLabel for="baslangicsaati" value="Başlangıç Saati:" />
+				<p:spinner id="baslangicdakika" showOn="button" size="1"
+					value="#{scheduleView.event.startDate.minutes}">
+					<p:spinner id="baslangicsaati" showOn="button" size="1"
+						value="#{scheduleView.event.startDate.hours}" />
+				</p:spinner>
+
+				<h:outputLabel for="bitissaati" value="Bitiş Saati:" />
+				<p:spinner id="bitisdakika" showOn="button" size="1"
+					value="#{scheduleView.event.endDate.minutes}">
+					<p:spinner id="bitissaati" showOn="button" size="1"
+						value="#{scheduleView.event.endDate.hours}" />
+				</p:spinner>
 
 				<p:commandButton type="reset" value="Reset" />
 				<p:commandButton id="addButton" value="Save"
@@ -74,7 +83,7 @@
 					'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara' ],
 			dayNames : [ 'Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe',
 					'Cuma', 'Cumartesi' ],
-			dayNamesShort : [ 'A101', 'Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct' ],
+			dayNamesShort : [ 'Pz', 'Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct' ],
 			dayNamesMin : [ 'Pz', 'Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct' ],
 			weekHeader : 'Hf',
 			firstDay : 1,

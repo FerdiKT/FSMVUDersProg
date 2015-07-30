@@ -4,14 +4,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
-	<h:outputStylesheet name="style.css" />
+	<ui:include src="header.xhtml"></ui:include>
 	<title>login</title>
 </h:head>
 <h:body>
-	<div class="form_login">
+	<div id="loginbox">
 		<h:form>
 			<h3>JSF Login Logout</h3>
 			<h:outputText value="Username " />
@@ -28,6 +29,8 @@
 
 			<p:commandButton action="#{login.validateUsernamePassword}"
 				value="Login"></p:commandButton>
+			<p:commandButton action="#{login.register}"
+				value="Kayıt Ol"></p:commandButton>
 		</h:form>
 	</div>
 </h:body>
