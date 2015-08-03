@@ -3,15 +3,14 @@ body {
     max-width:900px;
 }
 #loginbox {
-	width:200px;
-	margin: auto;
+	width:250px;
+	margin:100px auto;
 }
 #admin_menu{
-	width:200px;
-	margin:auto;
+	width:300px;
+	margin:100px auto;
 }
 #menu{
-	
 	width:200px;
-	margin:50px auto;
+	margin:100px auto;
 }

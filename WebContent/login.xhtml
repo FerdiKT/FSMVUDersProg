@@ -14,23 +14,20 @@
 <h:body>
 	<div id="loginbox">
 		<h:form>
-			<h3>JSF Login Logout</h3>
-			<h:outputText value="Username " />
-			<p:inputText id="username" value="#{login.user}"></p:inputText>
-			<h:message for="username"></h:message>
-			<br />
-			<br />
-
-			<h:outputText value="Password " />
-			<p:password id="password" value="#{login.pwd}"></p:password>
-			<h:message for="password"></h:message>
-			<br />
-			<br />
-
-			<p:commandButton action="#{login.validateUsernamePassword}"
-				value="Login"></p:commandButton>
-			<p:commandButton action="#{login.register}"
-				value="Kayıt Ol"></p:commandButton>
+				<h3>FSMVU Ders Takvimi</h3>
+				<h:panelGrid id="registerPanel" columns="1">
+				<h:outputText value="Username " />
+				<p:inputText id="username" value="#{login.user}"></p:inputText>
+				<h:message for="username"></h:message>
+				
+				<h:outputText value="Password " />
+				<p:password id="password" value="#{login.pwd}"></p:password>
+				<h:message for="password"></h:message>
+				
+				<p:commandButton action="#{login.validateUsernamePassword}"
+					value="Login"></p:commandButton>
+				<p:commandButton action="#{login.register}" value="Kayıt Ol"></p:commandButton>
+			</h:panelGrid>
 		</h:form>
 	</div>
 </h:body>
