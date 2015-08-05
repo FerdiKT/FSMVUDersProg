@@ -37,5 +37,6 @@ public class Register {
 		session.beginTransaction();
 		session.save(userInfo);
 		session.getTransaction().commit();
+		session.close();
 	}
 }

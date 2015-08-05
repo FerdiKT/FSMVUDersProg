@@ -18,6 +18,9 @@ import org.primefaces.model.DefaultScheduleModel;
 import org.primefaces.model.LazyScheduleModel;
 import org.primefaces.model.ScheduleEvent;
 import org.primefaces.model.ScheduleModel;
+import org.springframework.web.client.RestTemplate;
+
+import tr.edu.fsm.dersprog.FSMVUDersProg.Derslik.Derslik;
  
 @ManagedBean
 @ViewScoped
@@ -31,8 +34,10 @@ public class ScheduleView implements Serializable {
  
     @PostConstruct
     public void init() {
+    	RestTemplate restTemplate = new RestTemplate();
+        Derslik derslik = restTemplate.getForObject("http://localhost:8080/Derslik?derslik_kodu=102", Derslik.class);
         eventModel = new DefaultScheduleModel();
-        eventModel.addEvent(new DefaultScheduleEvent("Champions League Match", previousDay8Pm(), previousDay11Pm()));
+        eventModel.addEvent(new DefaultScheduleEvent(derslik.getDerslikAdi(), previousDay8Pm(), previousDay11Pm()));
         eventModel.addEvent(new DefaultScheduleEvent("Birthday Party", today1Pm(), today6Pm()));
         eventModel.addEvent(new DefaultScheduleEvent("Breakfast at Tiffanys", nextDay9Am(), nextDay11Am()));
         eventModel.addEvent(new DefaultScheduleEvent("Plant the new garden stuff", theDayAfter3Pm(), fourDaysLater3pm()));
