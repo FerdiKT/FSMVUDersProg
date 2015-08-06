@@ -1,0 +1,16 @@
+body {
+    margin: auto; 
+    max-width:900px;
+}
+#loginbox {
+	width:250px;
+	margin:100px auto;
+}
+#admin_menu{
+	width:300px;
+	margin:100px auto;
+}
+#menu{
+	width:200px;
+	margin:100px auto;
+}
